@@ -23,7 +23,6 @@ import org.nerdcircus.android.klaxon.Pager.Replies;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -38,8 +37,6 @@ public class PageViewer extends Activity
     private String TAG = "PageViewer";
     private static int REQUEST_PICK_REPLY = 1;
 
-    private SharedPreferences mResponses;
-
     private Uri mContentURI;
     private Cursor mCursor;
     private TextView mSubjectView;
@@ -52,7 +49,7 @@ public class PageViewer extends Activity
     public void onCreate(Bundle icicle)
     {
         super.onCreate(icicle);
-        mResponses = getSharedPreferences("responses", 0);
+        getSharedPreferences("responses", 0);
 
         setContentView(R.layout.escview);
 
@@ -105,8 +102,7 @@ public class PageViewer extends Activity
             c.moveToNext();
         }
         menu.add(Menu.NONE, Menu.NONE, Menu.NONE, R.string.other);
-        //make delete be last
-        MenuItem delete_item = menu.add(Menu.NONE, Menu.NONE, Menu.NONE, R.string.delete);
+        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, R.string.delete);
 
         return true;
     }

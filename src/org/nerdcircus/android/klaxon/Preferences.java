@@ -17,7 +17,6 @@
 package org.nerdcircus.android.klaxon;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -27,8 +26,6 @@ import android.util.Log;
 
 public class Preferences extends PreferenceActivity {
     
-    private static final Uri CHANGELOG_URI = Uri.parse("http://code.google.com/p/klaxon/wiki/ChangeLog");
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 public class ReplyAdapter extends ResourceCursorAdapter
 {
+    @SuppressWarnings("unused")
     private String TAG = "ReplyAdapter";
 
     public ReplyAdapter(Context context, int layout, Cursor c){

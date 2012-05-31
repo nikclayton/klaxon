@@ -171,7 +171,8 @@ public class PagerProvider extends ContentProvider {
         }
 
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
-        Cursor c = qb.query(db, projection, selection, selectionArgs, null, null, sort);
+        Cursor c = qb.query(db, projection, selection, selectionArgs, null,
+                null, orderBy);
         c.setNotificationUri(getContext().getContentResolver(), url);
         return c;
     }
@@ -212,7 +213,6 @@ public class PagerProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri url, ContentValues initialValues) {
-        long rowID;
         ContentValues values;
         if (initialValues != null) {
             values = new ContentValues(initialValues);
@@ -271,7 +271,6 @@ public class PagerProvider extends ContentProvider {
     public int update(Uri url, ContentValues values, String where, String[] selectionArgs) {
     //XXX: type-specific differences: table name, where clause (if there's an ID specified)
         int count;
-        long rowId = 0;
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         switch (URL_MATCHER.match(url)) {
         case PAGES:

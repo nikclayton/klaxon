@@ -188,11 +188,14 @@ public class KlaxonList extends ListActivity
                     "show_in_menu == 1", null, null);
         c.moveToFirst();
         while ( ! c.isAfterLast() ){
-            MenuItem mi = addContextMenuItem(menu,
-                             c.getString(c.getColumnIndex(Replies.NAME)),
-                             c.getString(c.getColumnIndex(Replies.BODY)),
-                             c.getInt(c.getColumnIndex(Replies.ACK_STATUS)),
-                             getListAdapter().getItemId(((AdapterView.AdapterContextMenuInfo)menuInfo).position)
+            addContextMenuItem(
+                    menu,
+                    c.getString(c.getColumnIndex(Replies.NAME)),
+                    c.getString(c.getColumnIndex(Replies.BODY)),
+                    c.getInt(c.getColumnIndex(Replies.ACK_STATUS)),
+                    getListAdapter()
+                            .getItemId(
+                                    ((AdapterView.AdapterContextMenuInfo) menuInfo).position)
                              );
             c.moveToNext();
         }

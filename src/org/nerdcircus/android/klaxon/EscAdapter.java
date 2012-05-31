@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 public class EscAdapter extends ResourceCursorAdapter
 {
+    @SuppressWarnings("unused")
     private String TAG = "EscAdapter";
 
     public EscAdapter(Context context, int layout, Cursor c){

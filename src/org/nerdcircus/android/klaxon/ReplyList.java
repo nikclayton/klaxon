@@ -19,7 +19,6 @@ package org.nerdcircus.android.klaxon;
 import org.nerdcircus.android.klaxon.Pager.Replies;
 
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -79,7 +78,6 @@ public class ReplyList extends ListActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        final Context appcontext = (Context)this;
         MenuItem mi;
         mi = menu.add(MENU_ACTIONS_GROUP, MENU_ADD, Menu.NONE, R.string.add_reply);
         Intent i = new Intent(Intent.ACTION_INSERT,

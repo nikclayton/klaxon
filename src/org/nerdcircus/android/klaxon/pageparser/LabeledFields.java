@@ -38,7 +38,6 @@ public class LabeledFields extends Standard {
 
     private ContentValues cleanupLabeledFields(ContentValues cv){
         String body = cv.getAsString(Pages.BODY);
-        String[] labels = { "frm:", "subj:", "msg:" };
         String val = getLabeledValue("frm:", body);
         if(val != null){
             cv.put(Pages.FROM_ADDR, val);
