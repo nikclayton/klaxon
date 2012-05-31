@@ -58,9 +58,10 @@ public class ReplyEditor extends Activity
 
 
         /* stash our statuses in the ack status list*/
-        mAckStatusList.add(new Integer(0));
-        mAckStatusList.add(new Integer(1));
-        mAckStatusList.add(new Integer(2));
+        // TODO: Make this an enum?
+        mAckStatusList.add(Integer.valueOf(0));
+        mAckStatusList.add(Integer.valueOf(1));
+        mAckStatusList.add(Integer.valueOf(2));
 
         mSubjectView = (EditText) findViewById(R.id.subject);
         //mSubjectView.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
