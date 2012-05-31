@@ -30,6 +30,7 @@ import android.database.Cursor;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
@@ -127,7 +128,8 @@ public class Notifier extends BroadcastReceiver
         Intent cancelIntent = new Intent(Pager.SILENCE_ACTION);
 
 
-        Notification.Builder builder = new Notification.Builder(context)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                context)
                 // TODO: 'n pages waiting'
                 .setContentText("This will be overridden below")
                 .setSmallIcon(R.drawable.bar_icon)
