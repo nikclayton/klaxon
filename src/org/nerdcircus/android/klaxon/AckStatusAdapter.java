@@ -25,9 +25,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 /* class to represent the various ack statuses to be show in a spinner.*/
-public class AckStatusAdapter extends ArrayAdapter {
+public class AckStatusAdapter extends ArrayAdapter<Integer> {
 
-    public AckStatusAdapter(Context context, int textViewResourceId, List<Integer> items){
+    public AckStatusAdapter(Context context, int textViewResourceId,
+            List<Integer> items) {
         super(context, textViewResourceId, items);
     }
 
