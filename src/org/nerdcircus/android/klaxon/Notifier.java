@@ -29,13 +29,10 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.AudioManager;
 import android.net.Uri;
-import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
-
-import org.nerdcircus.android.klaxon.Pager;
 
 public class Notifier extends BroadcastReceiver
 {
@@ -130,36 +127,33 @@ public class Notifier extends BroadcastReceiver
         Intent cancelIntent = new Intent(Pager.SILENCE_ACTION);
 
 
-        Notification n = new Notification(
-            R.drawable.bar_icon,
-            "This will be overridden below.", //TODO: make this be "n pages waiting"
-            System.currentTimeMillis()
-        );
-        n.ledARGB=R.color.red;
-        n.ledOnMS=1000;
-        n.ledOffMS=100;
-        n.sound = alertsound;
-        n.flags = Notification.FLAG_AUTO_CANCEL | 
-                  Notification.FLAG_SHOW_LIGHTS;
-        n.contentIntent = PendingIntent.getActivity(context, 0, listIntent, 0);
-        n.deleteIntent = PendingIntent.getBroadcast(context, 0, cancelIntent, 0);
+        Notification.Builder builder = new Notification.Builder(context)
+                // TODO: 'n pages waiting'
+                .setContentText("This will be overridden below")
+                .setSmallIcon(R.drawable.bar_icon)
+                .setWhen(System.currentTimeMillis())
+                .setLights(R.color.red, 1000, 100)
+                .setAutoCancel(true)
+                .setContentIntent(PendingIntent.getActivity(context, 0, listIntent, 0))
+                .setDeleteIntent(PendingIntent.getBroadcast(context, 0, cancelIntent, 0))
+                .setTicker(subject);
 
-        n.tickerText = subject;
-        n.contentView = new RemoteViews(context.getPackageName(), R.layout.notification);
+        RemoteViews r = new RemoteViews(context.getPackageName(), R.layout.notification);
+        r.setTextViewText(R.id.text, subject);
 
-        n.contentView.setTextViewText(R.id.text, subject);
+        builder.setContent(new RemoteViews(context.getPackageName(),
+                R.layout.notification));
 
-        //vibrate!
-        if (prefs.getBoolean("vibrate", true)){
-            n.vibrate = new long[] {0, 800, 500, 800};
+        if (prefs.getBoolean("vibrate", true))
+            builder.setVibrate(new long[] { 0, 800, 500, 800 });
+
+        if (prefs.getBoolean("use_alarm_stream", false)) {
+            builder.setSound(alertsound, AudioManager.STREAM_ALARM);
+        } else {
+            builder.setSound(alertsound);
         }
 
-        // default is RING. this will override.
-        if (prefs.getBoolean("use_alarm_stream", false)){
-            n.audioStreamType = AudioManager.STREAM_ALARM;
-        }
-
-        return n;
+        return builder.getNotification();
     }
 
     private void updateAckStatus(Context c, Uri data, int ack_status){
