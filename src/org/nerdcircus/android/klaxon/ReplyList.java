@@ -16,29 +16,20 @@
 
 package org.nerdcircus.android.klaxon;
 
-import android.app.Activity;
+import org.nerdcircus.android.klaxon.Pager.Replies;
+
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-
-import org.nerdcircus.android.klaxon.Pager.Replies;
-
-import android.util.Log;
 
 public class ReplyList extends ListActivity
 {

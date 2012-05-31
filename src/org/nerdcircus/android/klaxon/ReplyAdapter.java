@@ -24,10 +24,6 @@ import android.widget.ImageView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
-import org.nerdcircus.android.klaxon.Pager;
-
-import android.util.Log;
-
 public class ReplyAdapter extends ResourceCursorAdapter
 {
     private String TAG = "ReplyAdapter";

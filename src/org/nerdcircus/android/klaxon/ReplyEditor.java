@@ -16,13 +16,17 @@
 
 package org.nerdcircus.android.klaxon;
 
+import java.util.ArrayList;
+
+import org.nerdcircus.android.klaxon.Pager.Replies;
+
 import android.app.Activity;
-import android.content.Context;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,21 +35,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.content.SharedPreferences;
-import android.content.ContentValues;
-
-import org.nerdcircus.android.klaxon.Pager;
-import org.nerdcircus.android.klaxon.Pager.Replies;
-import org.nerdcircus.android.klaxon.AckStatusAdapter;
-
-import android.util.Log;
-
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 
 public class ReplyEditor extends Activity
 {

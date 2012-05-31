@@ -16,30 +16,22 @@
 
 package org.nerdcircus.android.klaxon;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Typeface;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
-import android.content.SharedPreferences;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import org.nerdcircus.android.klaxon.Pager;
 import org.nerdcircus.android.klaxon.Pager.Replies;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
-
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Arrays;
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PageViewer extends Activity
 {

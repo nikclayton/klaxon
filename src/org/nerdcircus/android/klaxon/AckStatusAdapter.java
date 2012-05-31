@@ -16,16 +16,13 @@
 
 package org.nerdcircus.android.klaxon;
 
-import android.content.Context;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.view.View;
-import android.view.ViewGroup;
-
 import java.util.List;
 
-import org.nerdcircus.android.klaxon.Pager;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 
 /* class to represent the various ack statuses to be show in a spinner.*/
 public class AckStatusAdapter extends ArrayAdapter {

@@ -1,11 +1,10 @@
 package org.nerdcircus.android.klaxon.pageparser;
 
-import android.content.ContentValues;
-import android.telephony.SmsMessage;
-import android.util.Log;
-
 import org.nerdcircus.android.klaxon.Alert;
 import org.nerdcircus.android.klaxon.Pager.Pages;
+
+import android.content.ContentValues;
+import android.telephony.SmsMessage;
 
 public class LabeledFields extends Standard {
     /* pageparser for gateways which include labels like "subj:", etc.
